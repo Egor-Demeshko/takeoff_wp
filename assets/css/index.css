@@ -1,0 +1,23 @@
+@import url("./global.css");
+@import url("./normolize.css");
+@import url("./top/top_index.css");
+@import url('./video/video_index.css');
+@import url("./space/space_index.css");
+@import url("./menu/menu_index.css");
+
+
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato.ttf') format('ttf');
+    font-display: swap;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Lato';
+    src: url('../fonts/Lato-Bold.ttf') format('ttf');
+    font-display: swap;
+    font-weight: bold;
+    font-style: normal;
+}

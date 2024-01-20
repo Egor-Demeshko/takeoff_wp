@@ -1,0 +1,28 @@
+/*BOX-SIZING*/
+* *{
+    box-sizing: border-box;
+}
+
+/*COLORS*/
+:root {
+    --black: #0E0E0E;
+    --accent: #E83B3B;
+    --light-grey: #D9D9D9;
+    --dark-grey: #54595F;
+    --light-grey-80: #D9D9D9B3;
+    --light-grey-30: #D9D9D94D;
+    --white: #F3F3F3;
+    --hover-black: #4A4A4A;
+    --black-opac: #0E0E0ECC;
+    --dark-gradient: #440000E6;
+    --light-gradient: #772C02E6;
+    --yellow: #F1E993;
+    --blue: #327AB8;
+
+
+    --button-background: linear-gradient(to top, var(--dark-gradient) 0%, var(--light-gradient) 100%);
+}
+
+body{
+    background-color: var(--black);
+}

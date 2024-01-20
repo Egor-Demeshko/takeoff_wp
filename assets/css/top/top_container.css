@@ -1,0 +1,18 @@
+.top_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 1;
+    padding-top: 6px; 
+}
+
+/*using wp classes*/
+.top_container img.custom-logo{
+    width: 90px;
+    height: 90px;
+}

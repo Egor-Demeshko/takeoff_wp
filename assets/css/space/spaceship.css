@@ -1,0 +1,79 @@
+.spaceship{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    z-index: 0;
+    transform: translateY(5%);
+}
+
+.spaceship__image{
+    width: 100%;
+}
+
+.learn_more{
+    display: block;
+    position: absolute;
+    width: 16%;
+    left: 50%;
+    bottom: 33%;
+    transform: translateX(-50%);
+}
+
+
+.spaceship__location{
+    display: block;
+    position: absolute;
+    width: 18%;
+    left: 22%;
+    bottom: 37%;
+    transform: translateX(0);
+}
+
+.spaceship__verify{
+    display: block;
+    position: absolute;
+    width: 18%;
+    right: 22%;
+    bottom: 37%;
+    transform: translateX(0);
+}
+
+.spaceship__wholesale{
+    display: block;
+    position: absolute;
+    width: 20%;
+    left: 50%;
+    bottom: 16%;
+    transform: translateX(-50%);
+}
+
+
+@media screen and (max-width: 500px){
+    .spaceship__image{
+        transform: translateY(-24%) scale(1.5);
+    }
+
+    .learn_more{
+        width: 22%;
+        bottom: 50%;
+    }
+
+    .spaceship__location{
+        width: 26%;
+        left: 8%;
+        bottom: 55%;
+    }
+
+    .spaceship__verify{
+        width: 26%;
+        right: 10%;
+        bottom: 56%;
+    }
+
+    .spaceship__wholesale{
+        width: 29%;
+        left: 50%;
+        bottom: 24%;
+    }
+}

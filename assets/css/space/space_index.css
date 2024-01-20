@@ -1,0 +1,48 @@
+@import url("./spaceship.css");
+
+.space{
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.space__background{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.space__image{
+    position: absolute;
+    z-index: -1;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotateZ(0) /*меняем на 23 градуса*/;
+}
+
+.space__earth{
+    display: block;
+    width: 16.9rem;
+    height: 16.9rem;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-20%, -50%) scale(.7);
+    filter: blur(6px);
+}
+
+.space__smoke{
+    position: absolute;
+    top: 0;
+    right: 25%;
+}
+
+@media screen and (max-width: 500px) {
+    .space__earth{
+        width: 12.25rem;
+        height: 12.25rem;
+        top: 30%;
+        transform: translate(-50%, 0) scale(.6);
+    }
+}
