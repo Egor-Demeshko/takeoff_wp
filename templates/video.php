@@ -16,4 +16,8 @@ $caption = ($caption && strlen($caption) > 0) ? $caption : wp_get_attachment_cap
         <source src="<?php echo $mobile_url ?>" media="(max-width: 500px)">
         <source src="<?php echo $desktop_url ?>">
     </video>
+
+    <?php 
+        get_template_part("templates/arrows", "");
+    ?>
 </div>

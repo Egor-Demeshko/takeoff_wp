@@ -79,6 +79,8 @@ export default function startBlockAnimation({animationTime}){
 
     /**easing function defined in prepare styles */
     function handleWheel(){
+        // if menu opened, don't run scroll scripts
+        if(document.body.dataset.noscroll) return;
         //if video block active then current layer fades away, space layes pops up;
         if(activeBlock === videoId){
             video.style.opacity = 0;

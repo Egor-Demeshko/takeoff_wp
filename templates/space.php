@@ -15,7 +15,7 @@
             <?php
         }?>
     <div>
-        <img class="space__earth" src="<?php echo ($earth && $earth_url) ? $earth_url : get_template_directory_uri() .'public/images/earth.png';?>"/>
+        <img class="space__earth" src="<?php echo ($earth && $earth_url && strlen($earth_url) > 0) ? $earth_url : get_template_directory_uri() .'/public/images/earth.png';?>"/>
     </div>
     <img class="space__smoke" src="<?= get_template_directory_uri() . '/public/images/Smoke-PNG-Photos.png'?>">
     <?php get_template_part("templates/spaceship", '')?>

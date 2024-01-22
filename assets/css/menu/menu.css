@@ -21,7 +21,8 @@
     margin: auto 0;
 }
 
-.mobile_menu li>a{
+
+.menu-item>a{
     text-decoration: none;
     display: block;
     font-size: .875rem;
@@ -34,7 +35,11 @@
     transition: background 400ms ease;
 }
 
-.mobile_menu li>a:hover{
+.current-menu-item>a{
+    color: var(--accent);
+}
+
+.menu-item>a:hover{
     background-color: var(--light-grey);
 }
 
