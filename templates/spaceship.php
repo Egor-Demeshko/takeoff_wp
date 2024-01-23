@@ -6,7 +6,7 @@
         <img class="learn_more" src="<?php echo get_template_directory_uri() . '/public/media/Learn_more.gif'; ?>" 
         alt="learn more text" role="presentation"/>
     </a>
-    <a class="spaceship__link" href="/location_near">
+    <a class="spaceship__link" href="/location">
         <img class="spaceship__location" src="<?php echo get_template_directory_uri() . '/public/media/Location_near_me.gif'; ?>" 
         alt="location text" role="presentation"/>
     </a>

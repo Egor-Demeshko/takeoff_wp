@@ -1,0 +1,58 @@
+.address_card{
+    width: clamp(350px, 36vw, 450px);
+    height: clamp(233px, 24vw, 300px);
+    display: flex;
+    flex-direction: column;
+}
+
+.address_card__top{
+    flex: 1;
+}
+.address_card__top>img{
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.address_card__bottom{
+    flex: 1;
+    display: flex;
+    background-color: var(--white);
+    gap: 1rem;
+    padding: .875rem;
+}
+
+.address_card__logo{
+    display: flex;
+    align-items: center;
+}
+
+.address_card__logo img{
+    display: block;
+    width: clamp(68.6px, 7.1vw, 88px);
+}
+
+
+/* Adress and contact info */
+.address_card__info{
+    display: flex;
+    gap:.5rem;
+    flex-direction: column;
+}
+
+.address_card__info a{
+    text-decoration: none;
+    white-space: normal;
+    font-family: Poppins, Lato,sans-serif;
+}
+
+.address_card__info--accent{
+    color: var(--accent);
+    font-weight: 500;
+}
+
+.address_card__info--black{
+    color: var(--black);
+}
+

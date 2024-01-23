@@ -5,6 +5,9 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@glidejs/glide':
+    specifier: ^3.6.0
+    version: 3.6.0
   motion:
     specifier: ^10.17.0
     version: 10.17.0
@@ -222,6 +225,10 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@glidejs/glide@3.6.0:
+    resolution: {integrity: sha512-47Aa+JmYjY4xTFpTtYCwrqirmI1arnp1UZETwtWpbTPisXUAuxrdJxKJLH8KHFWMsSrLi9+AcfyfzDIuO75rEA==}
+    dev: false
 
   /@motionone/animation@10.17.0:
     resolution: {integrity: sha512-ANfIN9+iq1kGgsZxs+Nz96uiNcPLGTXwfNo2Xz/fcJXniPYpaz/Uyrfa+7I5BPLxCP82sh7quVDudf1GABqHbg==}

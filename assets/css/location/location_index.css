@@ -1,0 +1,29 @@
+@import url("../normolize.css");
+@import url('../global.css');
+@import url("../menu/menu_index.css");
+@import url("../top/top_index.css");
+@import url("./dropdown.css");
+@import url("./address_card.css");
+@import url("/node_modules/@glidejs/glide/dist/css/glide.core.css");
+@import url("/assets/css/elements/glide/glide.css");
+
+* *{
+    box-sizing: border-box;
+}
+
+.container{
+    max-width: 1240px;
+    margin: 0 auto;
+    padding-top: 152px;
+}
+
+.container>*{
+    margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 800px) {
+    .container{
+        padding: 0 1.5rem;
+        padding-top: 132px;
+    }
+}

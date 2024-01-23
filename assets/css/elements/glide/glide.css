@@ -1,0 +1,35 @@
+.glide__arrow{
+    display: none;
+    appearance: none;
+    border: none;
+    background-color: transparent;
+}
+
+.glide__arrow--left{
+    position: absolute;
+    right: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.glide__arrow--right{
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/*we are loading one svg template as arrow for multiporporses*/
+.glide__arrow--left>svg,
+.glide__arrow--right>svg{
+    stroke: var(--gray);
+    width: 36px;
+    height: 18px;
+}
+
+.glide__arrow--left>svg{
+    transform: rotateZ(90deg);
+}
+.glide__arrow--right>svg{
+    transform: rotateZ(-90deg);
+}

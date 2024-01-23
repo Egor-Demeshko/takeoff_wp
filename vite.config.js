@@ -2,15 +2,17 @@
 export default {
   build: {
     minify: false,
-    assetsInlineLimit: 0,
     rollupOptions: {
+      input: {
+        index: 'build_entry_points/index.html',
+        location: 'build_entry_points/location.html'
+      },
       output: {
         entryFileNames: `[name].js`,
         chunkFileNames: `[name].js`,
         assetFileNames: `[name].[ext]`
       }
-    },
-    emptyOutDir: false
+    }
   }
 }
 
