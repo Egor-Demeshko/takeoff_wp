@@ -23,4 +23,9 @@ add_action( 'rest_api_init', function () {
             ]
         ]),
     ) );
+
+    register_rest_route( 'shops/v1', 'shop', array(
+        'methods'             => WP_REST_SERVER::READABLE,            // метод запроса: GET, POST ...
+        'callback'            => 'to_get_shops',
+    ) );
 } );

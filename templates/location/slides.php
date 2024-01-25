@@ -2,7 +2,7 @@
     $shops = $args["shops"];
 ?>
 
-<div class="glide">
+<div class="glide" data-coors="<?= $shops[0]->custom_fields["to_coordinates"]?>">
     <div class="glide__arrows" data-glide-el="controls" aria-label="<?php _e('Slider navigation buttons', 'to_takeoff') ?>">
         <button class="glide__arrow glide__arrow--left" data-glide-dir="<" 
         aria-label="<?php _e('Previous slide', 'to_takeoff') ?>" 
