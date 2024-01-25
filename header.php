@@ -1,5 +1,9 @@
-
-
+<?php
+/**time for fadein and fade out for slides on location.page
+ * used both in css and js
+ */
+$fadetime = 400;
+?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <head>
@@ -32,9 +36,13 @@
             font-display: swap;
             font-weight: medium;
         }
+
+        :root{
+            --fade_time: <?= $fadetime?>ms;
+        }
     </style>
     <?php wp_head(); ?>
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class(); ?> data-fadetime="<?= $fadetime?>">
     <?php
 

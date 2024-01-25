@@ -1,0 +1,12 @@
+.glide__slides{
+    transition: opacity var(--fade_time) ease;
+    opacity: 1;
+}
+
+.glide__slides.few_elements{
+    gap: 1rem;
+}
+
+.glide__slides.glide__slide--faded{
+    opacity: 0;
+}

@@ -4,6 +4,10 @@ $script_main = [
     'preload' => true
 ];
 
+require get_theme_file_path("/assets/php/api/init.php");
+require get_theme_file_path("/assets/php/const.php");
+
+
 function enqueue_assets() {
     global $template;
 
@@ -24,7 +28,7 @@ add_action('wp_enqueue_scripts', 'enqueue_assets');
 $enqueue_script_add_type_attribute = static function( $tag, $handle ){
     global $script_main;
     // if not your script, do nothing and return original $tag
-    if($script_main[$handle]){
+    if(isset($script_main[$handle])){
 
         // remove the current type if there is one
         $tag = preg_replace( '/ type=([\'"])[^\'"]+\1/', '', $tag ); 
@@ -51,3 +55,48 @@ add_action( 'init', function () {
     register_nav_menu('mobile_menu',__( 'Mobile Menu', "to_takeoff" ));
 });
 
+function register_custom_post_type() {
+    $labels = array(
+        'name'               => _x( 'Shops', 'post type general name', 'to_takeoff' ),
+        'singular_name'      => _x( 'Shop', 'post type singular name', 'to_takeoff' ),
+        'menu_name'          => _x( 'Shops', 'admin menu', 'to_takeoff' ),
+        'name_admin_bar'     => _x( 'Shop', 'add new on admin bar', 'to_takeoff' ),
+        'add_new'            => _x( 'Add New', 'book', 'to_takeoff' ),
+        'add_new_item'       => __( 'Add New Shop', 'to_takeoff' ),
+        'new_item'           => __( 'New Shop', 'to_takeoff' ),
+        'edit_item'          => __( 'Edit Shop', 'to_takeoff' ),
+        'view_item'          => __( 'View Shop', 'to_takeoff' ),
+        'all_items'          => __( 'All Shops', 'to_takeoff' ),
+        'search_items'       => __( 'Search Shops', 'to_takeoff' ),
+        'parent_item_colon'  => __( 'Parent Shops:', 'to_takeoff' ),
+        'not_found'          => __( 'No Shops found.', 'to_takeoff' ),
+        'not_found_in_trash' => __( 'No Shops found in Trash.', 'to_takeoff' )
+    );
+
+    $args = array(
+        'labels'             => $labels,
+        'description'        => __( 'Description.', 'to_takeoff' ),
+        'public'             => true,
+        'publicly_queryable' => true,
+        'show_ui'            => true,
+        'show_in_menu'       => true,
+        'query_var'          => true,
+        'rewrite'            => array( 'slug' => 'shops' ),
+        'capability_type'    => 'post',
+        'has_archive'        => true,
+        'hierarchical'       => false,
+        'menu_position'      => null,
+        'menu_icon'          => 'dashicons-admin-multisite', // Add this line
+        'supports'           => array( 'title' ) // Removed 'editor'
+    );
+
+    register_post_type( 'shops', $args );
+}
+
+function add_theme_path_to_head() {
+    echo '<script type="text/javascript">';
+    echo 'var to_themePath = "' . get_template_directory_uri() . '";';
+    echo '</script>';
+}
+
+add_action('wp_head', 'add_theme_path_to_head');

@@ -6,6 +6,10 @@
 @import url("./address_card.css");
 @import url("/node_modules/@glidejs/glide/dist/css/glide.core.css");
 @import url("/assets/css/elements/glide/glide.css");
+@import url("/assets/css/location/glide_additional.css");
+@import url("/assets/css/location/map.css");
+/* OL styles form OPENSTREET MAP */
+@import url("/node_modules/ol/ol.css");
 
 * *{
     box-sizing: border-box;
@@ -14,12 +18,19 @@
 .container{
     max-width: 1240px;
     margin: 0 auto;
-    padding-top: 152px;
+    padding-top: 110px;
+    display: flex;
+    flex-direction: column;
 }
 
 .container>*{
     margin-bottom: 1.5rem;
 }
+
+.vh100{
+    height: 100vh;
+}
+
 
 @media screen and (max-width: 800px) {
     .container{

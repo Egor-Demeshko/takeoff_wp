@@ -36,14 +36,14 @@ const menuState = {
      * @return {void} 
      */
     subscribe: function(fn){
-        this.callbacks.add(fn.bind(this));
+        this.callbacks.add(fn);
     },
     /**
      * Executes all the registered subscriber functions.
      */
     callSubscribers: function(){
         if(this.callbacks.length === 0) return;
-        this.callbacks.forEach(fn => fn());
+        this.callbacks.forEach(fn => fn(this.state));
     },
 
     closeIfOpened: function(){
@@ -80,6 +80,11 @@ export function openCloseMenu(){
     menuState.toogleState();
 }
 
+
+export function subscribe(fn){
+    menuState.subscribe(fn);
+}
+
 function toggleActiveClass(){
     if(!dropdown) return;
     dropdown.classList.toggle('active');
@@ -93,6 +98,12 @@ function selectElement(e){
     
     if(target && textPlace){
         textPlace.textContent =  sanitizeString(target.dataset.value);
+
+        /**dispatch event that signals that option was picked*/
+        textPlace.dispatchEvent( new CustomEvent("dropdown_picked", {
+            bubbles: true, 
+            detail: {name: target.dataset.value}
+        }));
     }
 }
 

@@ -10,12 +10,14 @@ import Glide from '@glidejs/glide';
  * @return {Glide} The initialized Glide carousel object.
  */
 export default function glideInit({className}) {
-    const cards = document.querySelector(`.${className} .address_card`);
+    const cards = document.querySelectorAll(`.${className} .address_card`);
     const windowWindth = window.innerWidth;
     const arrows = document.querySelectorAll(`.${className} .glide__arrows .glide__arrow`);
 
     /**if we have a single card and it's not a mobile device, then we don't enable glide */
     if(cards.length < 3 && windowWindth > 500) return;
+
+    toggleStyleForFewElements(className, true);
 
     if(arrows && arrows.length > 0) {
         arrows.forEach( (arrow) => {
@@ -38,4 +40,16 @@ export default function glideInit({className}) {
 
     glide.mount();
     return glide;
+}
+
+
+export function toggleStyleForFewElements(startClassName, state){
+    const few = 'few_elements';
+    const slides = document.querySelector(`.${startClassName} .glide__slides`);
+    
+    if(slides && state){
+        slides.classList.remove(few);
+    } else if(slides && !state){
+        slides.classList.add(few);
+    }
 }
