@@ -10,3 +10,16 @@
 .glide__slides.glide__slide--faded{
     opacity: 0;
 }
+
+
+@media screen and (max-width: 800px){
+    .glide__arrow--left{
+        left: 10px;
+        right: unset
+    }
+
+    .glide__arrow--right{
+        right: 10px;
+        left: unset;
+    }
+}

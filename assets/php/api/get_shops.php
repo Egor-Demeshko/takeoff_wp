@@ -45,8 +45,8 @@ function prepareCityData($query){
             /**sanitize links in custom fields */
             $custom_fields['to_google_maps_link'] = esc_url($custom_fields['to_google_maps_link']);
             /**get images urls */
-            $logo_url = wp_get_attachment_url($custom_fields['to_logo_picture']);
-            $background_url = wp_get_attachment_url($custom_fields['background_picture']);
+            $logo_url = wp_get_attachment_image_url($custom_fields['to_logo_picture'], "thumbnail");
+            $background_url = wp_get_attachment_image_url($custom_fields['background_picture'], "meduim");
             $custom_fields['to_logo_picture'] = $logo_url ? $logo_url : get_theme_file_uri('/public/logos/Take-off_v1-1-1.png');
             $custom_fields['background_picture'] = $background_url ? $background_url : get_theme_file_uri('/public/images/shop_card_default.jpg');
 

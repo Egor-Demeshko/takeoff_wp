@@ -1,5 +1,7 @@
 import { subscribe } from "./dropdown";
 import sanitizeString from '/assets/js/utils/sanitizeInlineStyles.js';
+import prepareCoors from "/assets/js/utils/prepareCoors.js";
+import glideInit from '../utils/glide.js';
 
 /**
  * @type {string}
@@ -8,6 +10,7 @@ import sanitizeString from '/assets/js/utils/sanitizeInlineStyles.js';
 const DROPDOWN = 'dropdown';
 
 const fadeTime = document.body.dataset.fadetime || 400;
+const loader = document.querySelector('.slides__loader');
 
 export default class SlidesUpdater{
     faded = false;
@@ -15,8 +18,8 @@ export default class SlidesUpdater{
      * 
      * @param {Glide} glideElement 
      */
-    constructor(glideElement, className){
-        this.glideElement = glideElement;
+    constructor(className){
+        this.initGlide(className);
         this.className = className;
         this.dropdown = document.querySelector(`.${DROPDOWN}`);
         this.track = document.querySelector(`.${this.className} .glide__track`);
@@ -30,6 +33,13 @@ export default class SlidesUpdater{
 
         subscribe(this.fadeoutTrack.bind(this));
     }
+
+
+    initGlide(className = this.className){
+        this.glideElement = glideInit({
+            className
+        });
+    }   
 
 
     /**
@@ -81,8 +91,21 @@ export default class SlidesUpdater{
         };
         this.lastPicked = name;
 
+        if(loader){
+            loader.style.display = 'block';
+        }
+
+        if(this.glideElement){
+            this.glideElement.destroy();
+        }
+
         await this.buildNewMarkUp( await this.getData(name));
 
+        if(this.glideElement){
+            this.initGlide();
+        }
+
+        loader.style.display = 'none';
         /**FADE IN */
         try{
             await this.fadeinTrack();
@@ -156,20 +179,16 @@ export default class SlidesUpdater{
                 slides.appendChild(slide);
 
                 if(to_coordinates){
-                    let updated_coordinates = to_coordinates.split(',').map( coor => {
-                        coor = coor.trim();
-                        return Number(coor);
-                    });
-
-                    updated_coordinates = updated_coordinates;
-                    coordinates.push(updated_coordinates.reverse());
+                    let updated_coordinates = prepareCoors([to_coordinates]); 
+                    coordinates.push(updated_coordinates[0]);
                 }
             }
         );
 
         document.dispatchEvent( new CustomEvent( "change_map_coors", {
             detail: {
-                coors: coordinates
+                coors: coordinates,
+                picked_name: this.lastPicked
             }
         }));
     }

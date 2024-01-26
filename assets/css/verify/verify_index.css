@@ -1,0 +1,100 @@
+@import url("../global.css");
+@import url("../normolize.css");
+@import url("../menu/menu_index.css");
+@import url("../top/top_index.css");
+@import url("./code.css");
+@import url("/assets/css/loader.css");
+
+
+.verify__background{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    width: 100vw;
+    height: 100vh;
+}
+
+.verify__background video{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+}
+
+
+.verify__form{
+    width: clamp(20rem, 54vw, 680px);
+    padding: 3.94rem clamp(1rem, 8vw, 100px) clamp(1rem, 4vw, 48px);
+    background-image: linear-gradient(to bottom, #520202CC 0, #606060CC 100%);
+    backdrop-filter: blur(20px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+
+    border-radius: 16px;
+
+    font-family: Lato, sans-serif;
+    color: var(--white);
+}
+
+.verify__code_block {
+    position: relative; /* needed for absolute positioning of children */
+}
+
+.verify__status-wrapper{
+    padding: 1.125rem 3rem;
+    background-color: transparent;
+    transition: background .4s ease, border .4s ease;
+    border: 4px dashed var(--white);
+    border-radius: 16px;
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.verify__submit{
+    appearance: none;
+    background-color: var(--white);
+    border-radius: 10px;
+    border: none;
+    padding: 7px 4rem;
+    font-size: 1.125rem;
+    font-weight: 500;
+    transition: background .4s ease, color .4s ease;
+}
+
+.verify__submit:disabled{
+    color: var(--light-grey);
+    background-color: var(--white-30);
+}   
+
+
+/*RESPONSE STATUS STYLING*/
+.verify__error{
+    background-color: #E83B3B99;
+    backdrop-filter: blur(4px); 
+    border-style: solid;
+    border-color: #E83B3B99;
+}
+
+.verify__success{
+    background-color: #48B90399;
+    backdrop-filter: blur(4px);
+    border-style: solid;
+    border-color: #48B90399;
+}
+
+
+@media screen and (max-width: 500px) {
+    .verify__status-wrapper{
+        padding: 1.125rem 1rem;
+    }
+}

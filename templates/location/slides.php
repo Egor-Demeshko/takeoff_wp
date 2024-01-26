@@ -24,6 +24,10 @@
                 }
                     
             ?>
+
         </ul>
+        <div class="slides__loader">
+
+        </div>
     </div>
 </div>

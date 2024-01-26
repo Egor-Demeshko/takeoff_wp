@@ -1,0 +1,43 @@
+
+.code {
+    position: relative;
+    width: clamp(280px, 38vw, 480px);
+}
+
+.code__label {
+    position: absolute;
+    font-size: 1.125rem;
+    top: 50%;
+    left: 0.75rem;
+    transform: translate(0, -50%);
+    z-index: 0;
+    transition: all 0.3s ease-in-out;
+    color: var(--black);
+    pointer-events: none;
+}
+
+.code__input{
+    width: 100%;
+    border: none;
+    outline: none;
+    background-color: var(--white);
+    z-index: 1;
+    padding: 7px .75rem;
+    border-radius: 10px;
+    font-size: 1.125rem;
+    font-weight: 400;
+}
+
+
+
+.code__input:active + .code__label,
+.code__input:focus + .code__label,
+.code__input[data-filled="true"] + .code__label {
+    top: -18px;
+    left: 0;
+    font-size: 1rem;
+    color: var(--white);
+    font-weight: 500;
+}
+
+    

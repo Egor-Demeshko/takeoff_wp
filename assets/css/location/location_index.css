@@ -7,6 +7,7 @@
 @import url("/node_modules/@glidejs/glide/dist/css/glide.core.css");
 @import url("/assets/css/elements/glide/glide.css");
 @import url("/assets/css/location/glide_additional.css");
+@import url('/assets/css/loader.css');
 @import url("/assets/css/location/map.css");
 /* OL styles form OPENSTREET MAP */
 @import url("/node_modules/ol/ol.css");
@@ -32,9 +33,41 @@
 }
 
 
+.slides__loader{
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    box-shadow: 
+                0 0 100px 0 var(--white-30) inset,
+                clamp(600px, 100vw, 1240px) 0 100px 0 var(--accent-30) inset;
+    animation-name: background;
+    animation-duration: 1s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    border-radius: 70px;
+}
+
+
 @media screen and (max-width: 800px) {
     .container{
-        padding: 0 1.5rem;
+        padding: 0 .875rem;
         padding-top: 132px;
+    }
+}
+
+@keyframes background {
+    0%{
+        box-shadow: 0 0 200px 2px var(--accent-30) inset,
+                    0 0 50px 4px var(--accent-30);     
+   }
+    100%{
+        box-shadow: 0 0 200px 2px var(--white-30) inset,
+                    0 0 50px 4px var(--white-30);
     }
 }

@@ -7,6 +7,10 @@
 :root {
     --black: #0E0E0E;
     --accent: #E83B3B;
+    --accent-30: #E83B3B4D;
+    --white-30: #F3F3F34D;
+    --yellow-30: #F9D2094D;
+    --black-30: #0000004D;
     --light-grey: #B2B2B2;
     --dark-grey: #54595F;
     --hover-gray: #777777;
