@@ -2,7 +2,7 @@
 require "assets/php/menu/create_mobile_menu.php";
 // header.php
 get_header();
-
+get_template_part("templates/global__loader", "");
 // content.php
 get_template_part("templates/space", "");
 get_template_part("templates/video", "");

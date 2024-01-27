@@ -3,3 +3,7 @@
 @import url("../menu/menu_index.css");
 @import url("../top/top_index.css");
 @import url("./video.css");
+
+body{
+    overflow: hidden;
+}

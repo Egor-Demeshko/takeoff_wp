@@ -12,7 +12,7 @@ function enqueue_assets() {
     global $template;
 
     // Register and enqueue a JavaScript file depending on the current page
-    if(basename($template) === 'page-wholesale-inqueries.php' || is_front_page()) {
+    if(basename($template) === 'page-wholesale-inqueries.php' || is_front_page() || basename($template) === '404.php') {
         wp_enqueue_script('main-script', get_template_directory_uri() . '/dist/index.js', array(), null, true);
         wp_enqueue_style('main-style', get_template_directory_uri() . '/dist/index.css', array(), null);
     } else if (basename($template) === 'page-location.php') {

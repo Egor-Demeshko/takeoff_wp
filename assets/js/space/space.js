@@ -40,9 +40,16 @@ export function startAnimation(){
 
     if(smoke){
         reverseStyles.smoke.css = smoke.style.cssText;
-        reverseStyles.smoke.animationCntr = animate(smoke, {
-            right: "-25%"
-        }, {duration});
+
+        if(window.innerWidth > 500){
+            reverseStyles.smoke.animationCntr = animate(smoke, {
+                right: "-25%"
+            }, {duration});
+        } else {
+            reverseStyles.smoke.animationCntr = animate(smoke, {
+                right: "-50%"
+            }, {duration});
+        }
     }
 }
 

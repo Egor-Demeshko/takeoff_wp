@@ -4,10 +4,3 @@
     object-fit: cover;
     object-position: center center;
 }
-
-@media screen and (max-width: 500px) {
-    .learn-more__video{
-        width: 100vw;
-        height: unset;
-    }
-}

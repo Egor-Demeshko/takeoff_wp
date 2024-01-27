@@ -3,6 +3,8 @@
 get_header();
 require "assets/php/menu/create_mobile_menu.php";
 
+get_template_part("templates/global__loader", "");
+
 get_template_part("templates/space", "");
 get_template_part("templates/video", "");
 get_template_part('templates/top', '');

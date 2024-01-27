@@ -5,3 +5,11 @@
 @import url("./space/space_index.css");
 @import url("./menu/menu_index.css");
 @import url("./form/form_index.css");
+
+body{
+    overflow: hidden;
+}
+
+::view-transition-old{
+    transform: translateY(-100%);
+}

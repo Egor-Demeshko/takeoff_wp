@@ -45,4 +45,10 @@
         top: 30%;
         transform: translate(-50%, 0) scale(.6);
     }
+
+    .space__smoke{
+        position: absolute;
+        top: 0;
+        right: 0;
+    }
 }

@@ -14,6 +14,8 @@ foreach ($shops as $shop) {
 wp_reset_postdata();
 
 get_header();
+
+get_template_part("templates/global__loader", "");
 ?>
 
 <script>
