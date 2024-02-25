@@ -3,26 +3,25 @@ import SubmitProcess from "./submitProcess.js";
 /**
  * кликаем на кнопку
  * запускаем лоадер
- * шлем запрос на end route 
+ * шлем запрос на end route
  * получаем ответ
  * проработать в том числе если запрос пустой?
  * отрисовываем результат
  */
 
-class CodeCheckFlow extends SubmitProcess{
-
+class CodeCheckFlow extends SubmitProcess {
     form;
     input;
     button;
     status;
     constructor() {
         super();
-        this.form = document.querySelector('.verify__form');
-        this.input = document.querySelector('.code__input');
-        this.button = document.querySelector('.verify__submit');
-        this.status = document.getElementById('status');
+        this.form = document.querySelector(".verify__form");
+        this.input = document.querySelector(".code__input");
+        this.button = document.querySelector(".verify__submit");
+        this.status = document.getElementById("status");
 
-        if(!this.form || !this.input || !this.button) {
+        if (!this.form || !this.input || !this.button) {
             console.error("Can't find verify form elements");
             return null;
         }
@@ -30,44 +29,43 @@ class CodeCheckFlow extends SubmitProcess{
         this.#initListeners();
     }
 
-
-    #initListeners(){
-        this.form.addEventListener('submit', super.onSubmit.bind(this));
+    #initListeners() {
+        this.form.addEventListener("submit", super.onSubmit.bind(this));
     }
 
-    showSuccess(message){
-        if(!this.status){
+    showSuccess(message) {
+        if (!this.status) {
             console.error("Can't find status element");
             return;
         }
 
         const textElement = this.status.firstElementChild;
-        if(!textElement){
+        if (!textElement) {
             console.error("Can't find status text");
             return;
         }
 
         textElement.textContent = message;
-        this.status.classList.add('verify__success');
+        this.status.classList.add("verify__success");
+        this.status.classList.remove("verify__error");
     }
 
-    showError(message){
-        if(!this.status){
+    showError(message) {
+        if (!this.status) {
             console.error("Can't find status element");
             return;
         }
 
         const textElement = this.status.firstElementChild;
-        if(!textElement){
+        if (!textElement) {
             console.error("Can't find status text");
             return;
         }
 
         textElement.textContent = message;
-        this.status.classList.add('verify__error');
-        
+        this.status.classList.add("verify__error");
+        this.status.classList.remove("verify__success");
     }
 }
-
 
 const codeCheckFlow = new CodeCheckFlow();
