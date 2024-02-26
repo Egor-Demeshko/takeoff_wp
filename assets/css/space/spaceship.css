@@ -1,4 +1,4 @@
-.spaceship{
+.spaceship {
     position: absolute;
     width: 100%;
     left: 0;
@@ -7,11 +7,11 @@
     transform: translateY(5%);
 }
 
-.spaceship__image{
+.spaceship__image {
     width: 100%;
 }
 
-.learn_more{
+.learn_more {
     display: block;
     position: absolute;
     width: 16%;
@@ -20,8 +20,7 @@
     transform: translateX(-50%);
 }
 
-
-.spaceship__location{
+.spaceship__location {
     display: block;
     position: absolute;
     width: 18%;
@@ -30,7 +29,7 @@
     transform: translateX(0);
 }
 
-.spaceship__verify{
+.spaceship__verify {
     display: block;
     position: absolute;
     width: 18%;
@@ -39,7 +38,7 @@
     transform: translateX(0);
 }
 
-.spaceship__wholesale{
+.spaceship__wholesale {
     display: block;
     position: absolute;
     width: 20%;
@@ -48,30 +47,29 @@
     transform: translateX(-50%);
 }
 
-
-@media screen and (max-width: 500px){
-    .spaceship__image{
+@media screen and (max-width: 500px) {
+    .spaceship__image {
         transform: translateY(-24%) scale(1.5);
     }
 
-    .learn_more{
+    .learn_more {
         width: 22%;
         bottom: 50%;
     }
 
-    .spaceship__location{
+    .spaceship__location {
         width: 26%;
         left: 8%;
         bottom: 55%;
     }
 
-    .spaceship__verify{
+    .spaceship__verify {
         width: 26%;
         right: 10%;
         bottom: 56%;
     }
 
-    .spaceship__wholesale{
+    .spaceship__wholesale {
         width: 29%;
         left: 50%;
         bottom: 24%;
