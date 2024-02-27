@@ -1,7 +1,7 @@
 import {
     startAnimation as startSpaceAnimation,
-    resetAnimation as resetSpaceAnimation
-} from '/assets/js/space/space.js';
+    resetAnimation as resetSpaceAnimation,
+} from "/assets/js/space/space.js";
 
 const videoDefaultRules = {
     position: "absolute",
@@ -17,15 +17,14 @@ const spaceDefaultCss = {
     opacity: 0,
 };
 
-
 /** If js disabled, than we have traditional layout,
  * if scripts enabled than we can perform out enhanced scroll effects
  * setupup css rules than applied with js.
  */
-export default function startBlockAnimation({animationTime}){
-    const spaceId = 'space';
-    const videoId = 'video';
-    const videoClass = '.video_wrapper';
+export default function startBlockAnimation({ animationTime }) {
+    const spaceId = "space";
+    const videoId = "video";
+    const videoClass = ".video_wrapper";
     const TIME = animationTime;
     /**function to handle pointermove, for mobiles */
     const freezedMove = createFreezedEvent(() => handleWheel(), TIME);
@@ -34,83 +33,80 @@ export default function startBlockAnimation({animationTime}){
     var activeBlock = videoId;
 
     return {
-        findElements
+        findElements,
     };
 
-    function findElements(){
+    function findElements() {
         space = document.getElementById(spaceId);
         video = document.querySelector(videoClass);
-        if(!space || !video || (!TIME || TIME === 0)) return;
+        if (!space || !video || !TIME || TIME === 0) return;
 
         prepareStyles();
         initListeners();
     }
 
-    function prepareStyles(){
-
-        for(let [key, value] of Object.entries(videoDefaultRules)){
+    function prepareStyles() {
+        for (let [key, value] of Object.entries(videoDefaultRules)) {
             video.style[key] = `${value}`;
-        };
-        for(let [key, value] of Object.entries(spaceDefaultCss)){
+        }
+        for (let [key, value] of Object.entries(spaceDefaultCss)) {
             space.style[key] = `${value}`;
         }
-        video.style.transition =`opacity ${TIME}ms ease, transform ${TIME}ms ease`;
-        space.style.transition =`opacity ${TIME}ms ease, transform ${TIME}ms ease`;
+        video.style.transition = `opacity ${TIME}ms ease, transform ${TIME}ms ease`;
+        space.style.transition = `opacity ${TIME}ms ease, transform ${TIME}ms ease`;
     }
 
-    function initListeners(){
-        document.addEventListener("wheel", createFreezedEvent(handleWheel, TIME));
-        if(window.innerWidth <= 500){
+    function initListeners() {
+        document.addEventListener(
+            "wheel",
+            createFreezedEvent(handleWheel, TIME)
+        );
+        if (window.innerWidth <= 500) {
             document.addEventListener("pointermove", handleMove);
         }
     }
 
-
-    function createFreezedEvent(fn, time){
+    function createFreezedEvent(fn, time) {
         var isFreezed = false;
 
         return (e) => {
-            if(isFreezed) return;
+            if (isFreezed) return;
             isFreezed = true;
-            setTimeout(() => isFreezed = false, time); 
-            fn(e);  
-        } 
+            setTimeout(() => (isFreezed = false), time);
+            fn(e);
+        };
     }
 
     /**easing function defined in prepare styles */
-    function handleWheel(){
+    function handleWheel() {
         // if menu opened, don't run scroll scripts
-        if(document.body.dataset.noscroll) return;
+        if (document.body.dataset.noscroll) return;
         //if video block active then current layer fades away, space layes pops up;
-        if(activeBlock === videoId){
+        if (activeBlock === videoId) {
             video.style.opacity = 0;
             space.style.opacity = 1;
             activeBlock = spaceId;
 
-            setTimeout( () => {
+            setTimeout(() => {
                 video.style.transform = "translateY(-100%)";
                 startSpaceAnimation();
             }, TIME);
 
-            setTimeout( () => video.style.opacity = 1, 2 * TIME);
-
-        } else if(activeBlock === spaceId){
+            setTimeout(() => (video.style.opacity = 1), 2 * TIME);
+        } else if (activeBlock === spaceId) {
             space.style.opacity = 0;
             video.style.transform = "translateY(0)";
             activeBlock = videoId;
-            setTimeout( () => {
+            setTimeout(() => {
                 resetSpaceAnimation();
             }, TIME);
         }
     }
 
-    function handleMove(e){
-    const threshold = 20; // threshold in pixels
-    if(Math.abs(e.movementY) > threshold){
-        freezedMove();
+    function handleMove(e) {
+        const threshold = 20; // threshold in pixels
+        if (Math.abs(e.movementY) > threshold) {
+            freezedMove();
+        }
     }
-
-    
-}
-
 }

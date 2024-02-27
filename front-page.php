@@ -1,9 +1,9 @@
 <?php
 require "assets/php/menu/create_mobile_menu.php";
 // header.php
-get_header();?>
+get_header(); ?>
 <style>
-    body{
+    body {
         overflow: hidden;
     }
 </style>
