@@ -89,6 +89,15 @@
     border-color: #48b90399;
 }
 
+.verify__verified {
+    background-color: #ffd00099;
+    backdrop-filter: blur(4px);
+    border-style: solid;
+    border-color: #ffd00099;
+}
+
+/** END OF RESPONSE STYLING**/
+
 @media screen and (max-width: 500px) {
     .verify__status-wrapper {
         padding: 1.125rem 1rem;

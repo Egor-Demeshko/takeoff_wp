@@ -48,6 +48,21 @@ class CodeCheckFlow extends SubmitProcess {
         textElement.textContent = message;
         this.status.classList.add("verify__success");
         this.status.classList.remove("verify__error");
+        this.status.classList.remove("verify__verified");
+    }
+
+    showAlreadyVerified(message) {
+        const textElement = this.status.firstElementChild;
+
+        if (!textElement) {
+            console.error("Can't find status text");
+            return;
+        }
+
+        textElement.textContent = message;
+        this.status.classList.remove("verify__success");
+        this.status.classList.remove("verify__error");
+        this.status.classList.add("verify__verified");
     }
 
     showError(message) {
@@ -65,6 +80,7 @@ class CodeCheckFlow extends SubmitProcess {
         textElement.textContent = message;
         this.status.classList.add("verify__error");
         this.status.classList.remove("verify__success");
+        this.status.classList.remove("verify__verified");
     }
 }
 

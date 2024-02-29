@@ -25,9 +25,8 @@ export default class SubmitProcess {
 
                 if (result.status === true) {
                     this.showSuccess(result.message);
-
-                    this.enableEverything();
-                    return;
+                } else if (result.status === "verified") {
+                    this.showAlreadyVerified(result.message);
                 } else {
                     this.showError(result.message);
                 }
