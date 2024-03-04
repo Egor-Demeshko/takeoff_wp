@@ -31,6 +31,8 @@ export default function startBlockAnimation({ animationTime }) {
     var space = null;
     var video = null;
     var activeBlock = videoId;
+    /**is used to measure pointermove distance on y axis */
+    var coorsDifference = 0;
 
     return {
         findElements,
@@ -57,12 +59,37 @@ export default function startBlockAnimation({ animationTime }) {
     }
 
     function initListeners() {
+        var pointeruphandled = false;
         document.addEventListener(
             "wheel",
             createFreezedEvent(handleWheel, TIME)
         );
-        if (window.innerWidth <= 500) {
-            document.addEventListener("pointermove", handleMove);
+
+        /**register pointermove like events for mobile device */
+        if (window.innerWidth <= 1200 && isMobile()) {
+            /**we use pointerdown and pointerup for more durability instead of pointermove */
+            document.addEventListener("pointerdown", (e) => {
+                coorsDifference = e.clientY;
+                pointeruphandled = false;
+            });
+
+            document.addEventListener("pointerup", (e) => {
+                if (pointeruphandled) return;
+                const threshold = 20;
+                if (Math.abs(e.clientY - coorsDifference) > threshold) {
+                    pointeruphandled = true;
+                    freezedMove();
+                }
+            });
+
+            document.addEventListener("pointercancel", (e) => {
+                if (pointeruphandled) return;
+                const threshold = 20;
+                if (Math.abs(e.clientY - coorsDifference) > threshold) {
+                    pointeruphandled = true;
+                    freezedMove();
+                }
+            });
         }
     }
 
@@ -104,9 +131,12 @@ export default function startBlockAnimation({ animationTime }) {
     }
 
     function handleMove(e) {
-        const threshold = 20; // threshold in pixels
-        if (Math.abs(e.movementY) > threshold) {
-            freezedMove();
-        }
+        freezedMove();
+    }
+
+    function isMobile() {
+        return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+        );
     }
 }

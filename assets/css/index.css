@@ -1,7 +1,34 @@
 @import url("./global.css");
 @import url("./normolize.css");
 @import url("./top/top_index.css");
-@import url('./video/video_index.css');
+@import url("./video/video_index.css");
 @import url("./space/space_index.css");
 @import url("./menu/menu_index.css");
 @import url("./form/form_index.css");
+
+document {
+    touch-action: none;
+}
+
+/*swipe_icon*/
+/* .swipe_icon {
+    display: none;
+}
+
+
+@media screen and (max-width: 1000px) {
+    .swipe_icon {
+        display: block;
+        position: absolute;
+        z-index: 1;
+        bottom: 15%;
+        right: 2rem;
+        color: var(--gray);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .swipe_icon {
+        bottom: 30%;
+    }
+} */
